@@ -20,13 +20,13 @@ jobs:
         working-directory: ./terraform-configs
         run: |
         
-          docker build -t innocent/complete-devops-project:${{ env.SHORT_SHA }} .
+          docker build -t innocenttech/complete-devops-project:${{ env.SHORT_SHA }} .
       - name: Login to Dockerhub
         run: |
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
       - name: Push to Dockerhub
         run: |
-          docker push innocent/complete-devops-project:${{ env.SHORT_SHA }}
+          docker push innocenttech/complete-devops-project:${{ env.SHORT_SHA }}
       - name: Congure Git Author
         run: |
           git config --local user.email "hello@innocent.com"
