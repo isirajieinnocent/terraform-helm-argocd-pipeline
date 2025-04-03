@@ -17,7 +17,9 @@ jobs:
         run: |
           echo "SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
       - name: Build Docker Image
+        working-directory: ./terraform-configs
         run: |
+        
           docker build -t innocent/complete-devops-project:${{ env.SHORT_SHA }} .
       - name: Login to Dockerhub
         run: |
