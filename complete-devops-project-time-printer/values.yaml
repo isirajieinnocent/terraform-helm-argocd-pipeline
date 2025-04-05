@@ -1,5 +1,5 @@
 image:
-  repository: terraform-helm-argocd-pipeline
+  repository: isirajieinnocent/terraform-helm-argocd-pipeline
   tag: 90ec6b9
   pullPolicy: IfNotPresent
 service:
