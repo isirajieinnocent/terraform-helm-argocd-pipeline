@@ -8,7 +8,7 @@ spec:
   source:
     repoURL : "https://github.com/isirajieinnocent/terraform-helm-argocd-pipeline"
     targetRevision: HEAD
-    path: terraform-helm-argocd-pipeline
+    path: complete-devops-project-time-printer
   destination:
     server: "https://kubernetes.default.svc"
     namespace: default
