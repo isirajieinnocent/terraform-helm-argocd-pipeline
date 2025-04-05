@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: complete-devops-project
+  name: terraform-helm-argocd-pipeline
   namespace: argocd
 spec:
   project: default
