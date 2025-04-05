@@ -1,6 +1,6 @@
 image:
   repository: terraform-helm-argocd-pipeline
-  tag: 0fe3636
+  tag: 48fe42c
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
