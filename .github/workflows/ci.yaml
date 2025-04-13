@@ -1,5 +1,3 @@
----
-
 name: Complete DevOps Project Pipeline
 
 on:
@@ -7,30 +5,41 @@ on:
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs: 
   build_and_push:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Needed for git operations
+
       - name: Set Short SHA
         run: |
           echo "SHORT_SHA=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_ENV
+
       - name: Build Docker Image
         working-directory: ./terraform-configs
         run: |
-        
           docker build -t innocenttech/complete-devops-project:${{ env.SHORT_SHA }} .
+
       - name: Login to Dockerhub
         run: |
           echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
       - name: Push to Dockerhub
         run: |
           docker push innocenttech/complete-devops-project:${{ env.SHORT_SHA }}
-      - name: Congure Git Author
+
+      - name: Configure Git Author
         run: |
-          git config --local user.email "hello@innocent.com"
-          git config --local user.name "innocent01"
+          git config --global user.email "hello@innocent.com"
+          git config --global user.name "innocent01"
+
       - name: Update Helm Chart with new image tag
         run: |
           sed -i "s/tag:.*/tag: ${{ env.SHORT_SHA }}/" ./complete-devops-project-time-printer/values.yaml
