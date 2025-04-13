@@ -1,6 +1,6 @@
 image:
   repository: isirajieinnocent/terraform-helm-argocd-pipeline
-  tag: 6aa1c56
+  tag: sed -i "s/tag:.*/tag: 73e5561/" ./complete-devops-project-time-printer/values.yaml
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
