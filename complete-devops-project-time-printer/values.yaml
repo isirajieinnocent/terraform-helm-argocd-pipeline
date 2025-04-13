@@ -1,6 +1,6 @@
 image:
   repository: isirajieinnocent/terraform-helm-argocd-pipeline
-  tag: 7a250bc
+  tag: dc568ca
   pullPolicy: IfNotPresent
 service:
   type: ClusterIP
