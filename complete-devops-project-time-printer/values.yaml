@@ -1,13 +1,17 @@
 image:
   repository: isirajieinnocent/terraform-helm-argocd-pipeline
-  tag: 79bbaae
+  tag: c31ccb4
   pullPolicy: IfNotPresent
+
 service:
   type: ClusterIP
   port: 8080
+
 ingress:
   enabled: false
+
 serviceAccount:
   enabled: false
+
 autoscaling:
   enabled: false
