@@ -1,6 +1,6 @@
 image:
   repository: isirajieinnocent/terraform-helm-argocd-pipeline
-  tag: c31ccb4
+  tag: f146808
   pullPolicy: IfNotPresent
 
 service:
